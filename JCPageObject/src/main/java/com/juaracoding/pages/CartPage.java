@@ -53,7 +53,7 @@ public class CartPage {
         viewCart.click();
         DriverSingleton.scroll(500);
         DriverSingleton.delay(3);
-        System.out.println("Product Selected");
+        System.out.println("Product Selected and Add to Cart");
     }
 
 }

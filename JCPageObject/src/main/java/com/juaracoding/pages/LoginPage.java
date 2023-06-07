@@ -22,12 +22,31 @@ public class LoginPage {
     @FindBy(xpath = "//button[@name='login']")
     WebElement btnLogin;
 
+    @FindBy(xpath = "//h1[@class='page-title']")
+    WebElement dashboardTxt;
+
+    @FindBy(xpath = "//a[normalize-space()='Logout']")
+    WebElement btnLogout;
+
+    @FindBy(xpath = "//strong[normalize-space()='ERROR']")
+    WebElement invalidLogin;
+
     public void login(String username, String password){
         btnAcc.click();
         this.username.sendKeys(username);
         this.password.sendKeys(password);
         btnLogin.click();
-        DriverSingleton.delay(2);
-        System.out.println("Login Succeed");
+    }
+
+    public void logout(){
+        btnLogout.click();
+    }
+
+    public String getTxtDashboard(){
+        return dashboardTxt.getText();
+    }
+
+    public String getTxtErrorLogin(){
+        return invalidLogin.getText();
     }
 }
